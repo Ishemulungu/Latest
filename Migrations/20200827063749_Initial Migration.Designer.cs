@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeviceAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200826200944_Initial Migration")]
+    [Migration("20200827063749_Initial Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,26 +23,41 @@ namespace DeviceAPI.Migrations
 
             modelBuilder.Entity("DeviceAPI.Models.DeviceData", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CurrentTime")
+                    b.Property<string>("Dmac")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MajorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MinorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Refpower")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rssi")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeviceId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
-                    b.Property<string>("DeviceName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
+                    b.Property<string>("Uuid")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DeviceData");
+                    b.ToTable("AppDeviceData");
                 });
 #pragma warning restore 612, 618
         }

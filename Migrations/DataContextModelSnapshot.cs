@@ -21,26 +21,41 @@ namespace DeviceAPI.Migrations
 
             modelBuilder.Entity("DeviceAPI.Models.DeviceData", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CurrentTime")
+                    b.Property<string>("Dmac")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MajorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MinorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Refpower")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rssi")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeviceId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
-                    b.Property<string>("DeviceName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
+                    b.Property<string>("Uuid")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DeviceData");
+                    b.ToTable("AppDeviceData");
                 });
 #pragma warning restore 612, 618
         }

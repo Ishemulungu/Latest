@@ -7,8 +7,14 @@ namespace DeviceAPI.Dtos
 {
     public class CreateDeviceDataDto
     {
-        public string DeviceName { get; set; }
-        public string DeviceId { get; set; }
-        public string Location { get; set; }
+        public int Id { get; set; }
+        public int Index { get; set; }
+        public string Dmac { get; set; }
+        public int Refpower { get; set; }
+        public string Uuid { get; set; }
+        public int MajorID { get; set; }
+        public int Rssi { get; set; }
+        public int MinorID { get; set; }
+        public int Type { get; set; }
     }
 }
